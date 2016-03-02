@@ -1,0 +1,21 @@
+{
+  "name": "apiclient",
+  "version": "0.1.0",
+  "description": "request wrapper",
+  "main": "apiclient.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@cassandra01.solusi247.com:septian/apiclient.git"
+  },
+  "keywords": [
+    "request",
+    "api",
+    "rest",
+    "client"
+  ],
+  "author": "Septian Wibisono",
+  "license": "MIT"
+}
