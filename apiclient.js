@@ -101,7 +101,9 @@ ApiClient.prototype._minta = function (method, api, param, options, callback) {
   console.log(url.parse(opt.uri));
   cek(url.parse(opt.uri).port, url.parse(opt.uri).hostname).on('connect', function(e){
     console.error(e);
-    require('request-debug')(request);
+    if (process.env.NODE_ENV == 'development') {
+      require('request-debug')(request);
+    }
     // TODO: cek dulu, kalau methodnya get, ambil header dulu.
     //       kalau ukurannya lebih dari 5k arahkan langsung ke disk,
     //       kalau ukurannya kurang dari 5k masukkan buffer.
@@ -155,7 +157,9 @@ ApiClient.prototype._dumpdisk = function (method, api, param, options, callback)
       if (e) {
         callback(e, se);
       } else {
-        require('request-debug')(request);
+        if (process.env.NODE_ENV == 'development') {
+          require('request-debug')(request);
+        }
         // TODO: cek dulu, kalau methodnya get, ambil header dulu.
         //       kalau ukurannya lebih dari 5k arahkan langsung ke disk,
         //       kalau ukurannya kurang dari 5k masukkan buffer.

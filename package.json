@@ -1,6 +1,6 @@
 {
   "name": "apiclient",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "request wrapper",
   "main": "apiclient.js",
   "scripts": {
