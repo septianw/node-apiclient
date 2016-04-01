@@ -191,12 +191,20 @@ ApiClient.prototype.get = function (api, param, options, callback) {
   this._minta('GET', api, param, options, callback);
 }
 
-ApiClient.prototype.post = function (api, param, options, callback) {
+ApiClient.prototype.postForm = function (api, param, options, callback) {
   this._defaultAct('POST', api, param, options, callback);
+};
+
+ApiClient.prototype.post = function (api, param, options, callback) {
+  this._minta('POST', api, param, options, callback);
+}
+
+ApiClient.prototype.putForm = function (api, param, options, callback) {
+  this._defaultAct('PUT', api, param, options, callback);
 }
 
 ApiClient.prototype.put = function (api, param, options, callback) {
-  this._defaultAct('PUT', api, param, options, callback);
+  this._minta('PUT', api, param, options, callback);
 }
 
 ApiClient.prototype.delete = function (api, param, options, callback) {
