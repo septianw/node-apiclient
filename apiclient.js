@@ -182,7 +182,7 @@ ApiClient.prototype._sendBodyBin = function (method, api, param, options, callba
       url = require('url'),
       fs = require('fs'),
       opt = {},
-      localpath = options.localpath,
+      localpath = options.qs.localpath,
       defaultopt = {
         method: method,
         uri: this.data[method][api],
@@ -190,7 +190,7 @@ ApiClient.prototype._sendBodyBin = function (method, api, param, options, callba
           'Content-Type':mime.lookup(localpath)
         }
       };
-  delete options.localpath;
+  delete options.qs.localpath;
 
   if (isEmptyObject(options)) {
     opt = defaultopt;

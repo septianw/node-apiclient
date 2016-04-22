@@ -10,6 +10,7 @@ publish:
   npm:
     username: septianw
     password: Activat3d.
+    registry: http://192.168.1.245:4873
     email: septian.wibisono@solusi247.com
     always_auth: true
 
