@@ -8,7 +8,7 @@ seed.base.port = '80';
 var Api = new Apiclient(seed);
 
 describe('Api client test', function () {
-  this.timeout(3000);
+  this.timeout(5000);
   describe('Basic method', function () {
     it('Post basic request', function (done) {
       Api.post('root', {}, {}, function (e, r, b) {
@@ -74,7 +74,7 @@ describe('Api client test', function () {
 
     it('Upload file to remote', function (done) {
       var path = require('path');
-      Api.postUpload('root', {}, { localpath: path.resolve('./test/seed.json') }, function (e, r, b) {
+      Api.postUpload('root', {}, { qs: {localpath: path.resolve('./test/seed.json')} }, function (e, r, b) {
         b = JSON.parse(b);
         assert(1, b.code);
         done();
