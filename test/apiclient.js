@@ -8,6 +8,7 @@ seed.base.port = '80';
 var Api = new Apiclient(seed);
 
 describe('Api client test', function () {
+  this.timeout(3000);
   describe('Basic method', function () {
     it('Post basic request', function (done) {
       Api.post('root', {}, {}, function (e, r, b) {
