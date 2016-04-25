@@ -199,11 +199,32 @@ ApiClient.prototype._sendBodyBin = function (method, api, param, options, callba
   }
 
   opt.uri = sprintf(opt.uri, param);
+  var r = request(opt);
 
   cek(url.parse(opt.uri).port, url.parse(opt.uri).hostname).on('connect', function(e){
     if (process.env.NODE_ENV == 'development') {
       require('request-debug')(request);
     }
+    var rf = fs.createReadStream(localpath);
+
+    rf.pipe(r);
+    rf.on('error', callback);
+    rf.on('end', function () {
+      r.on('response', function (res) {
+        var data = '', ck = 0;
+        // response body written on memory.
+        res.on('data', function (chunk) {
+          data += chunk;
+          ck += chunk.length;
+        });
+        res.on('end', function () {
+          return callback(null, res, data);
+        });
+        res.on('error', function (err) {
+          return callback(err, res);
+        });
+      });
+    });
 
     fs.createReadStream(localpath).pipe(request(opt, callback));
 
