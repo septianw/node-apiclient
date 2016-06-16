@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@cassandra01.solusi247.com:septian/apiclient.git"
+    "url": "git@github.com:septianw/node-apiclient.git"
   },
   "keywords": [
     "request",
